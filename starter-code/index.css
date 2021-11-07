@@ -182,8 +182,8 @@ select {
 
 .large-button {
     position: relative;
-    display: grid;
     z-index: 1;
+    display: inline-grid;
     place-items: center;
     padding: 0 2em;
     border-radius: 50%;
@@ -195,12 +195,12 @@ select {
     content: '';
     position: absolute;
     z-index: -1;
-    background: hsl( var(--clr-white) / .15);
+    background: hsl( var(--clr-white) / .1);
     width: 100%;
     height: 100%;
     border-radius: 50%;
     opacity: 0;
-    transition: opacity 500ms linear, transform 500ms ease-in-out;
+    transition: opacity 500ms linear, transform 750ms ease-in-out;
 }
 
 .large-button:hover::after,
@@ -248,3 +248,32 @@ select {
     --gap: 2rem;
 }
 
+.dot-indicators > * {
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: .5em;
+    background-color: hsl( var(--clr-white) / .25);
+}
+
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
+    background-color: hsl( var(--clr-white) / .5);
+}
+
+.dot-indicators > [aria-selected="true"] {
+    background-color: hsl( var(--clr-white) / 1); 
+}
+
+.number-indicators {
+    flex-direction: column;
+}
+
+.number-indicators > * {
+    margin-bottom: .5em;
+    cursor: pointer;
+    /* border-radius: 50%; */
+    aspect-ratio: 1;
+    border: 1px solid hsl(var(--clr-white) / .25);
+}
